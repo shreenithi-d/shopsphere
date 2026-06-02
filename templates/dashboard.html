@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% block title %}
+Dashboard - ShopSphere
+{% endblock %}
+{% block content %}
+<!-- HERO SECTION -->
+<div class="p-5 mb-5 bg-primary text-white rounded shadow">
+    <div class="container">
+        <h1 class="display-4 fw-bold">
+            Welcome to ShopSphere Marketplace
+        </h1>
+        <p class="lead">
+            Discover thousands of products from multiple vendors.
+        </p>
+        <a href="{{ url_for('products') }}"
+           class="btn btn-warning btn-lg">
+            Start Shopping
+        </a>
+    </div>
+</div>
+<!-- STATISTICS -->
+<div class="row mb-5">
+    <div class="col-md-3">
+        <div class="card shadow border-0 text-center">
+            <div class="card-body">
+                <h2 class="text-primary">
+                    1000+
+                </h2>
+                <p>
+                    Products
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow border-0 text-center">
+            <div class="card-body">
+                <h2 class="text-success">
+                    50+
+                </h2>
+                <p>
+                    Vendors
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow border-0 text-center">
+            <div class="card-body">
+                <h2 class="text-danger">
+                    500+
+                </h2>
+                <p>
+                    Customers
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow border-0 text-center">
+            <div class="card-body">
+                <h2 class="text-warning">
+                    24/7
+                </h2>
+                <p>
+                    Support
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- CATEGORIES -->
+<h2 class="mb-4">
+    Shop by Category
+</h2>
+<div class="row mb-5">
+    <div class="col-md-2">
+        <div class="card text-center shadow">
+            <div class="card-body">
+                📱
+                <h6 class="mt-2">
+                    Electronics
+                </h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="card text-center shadow">
+            <div class="card-body">
+                👕
+                <h6 class="mt-2">
+                    Fashion
+                </h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="card text-center shadow">
+            <div class="card-body">
+                📚
+                <h6 class="mt-2">
+                    Books
+                </h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="card text-center shadow">
+            <div class="card-body">
+                🏠
+                <h6 class="mt-2">
+                    Home
+                </h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="card text-center shadow">
+            <div class="card-body">
+                ⚽
+                <h6 class="mt-2">
+                    Sports
+                </h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="card text-center shadow">
+            <div class="card-body">
+                💄
+                <h6 class="mt-2">
+                    Beauty
+                </h6>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FEATURED PRODUCTS -->
+<h2 class="mb-4">
+    Featured Products
+</h2>
+<div class="row">
+    {% for product in products %}
+    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card h-100 shadow-sm">
+            <img src="{{ product.image_url }}"
+                 class="card-img-top"
+                 height="220">
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{ product.name }}
+                </h5>
+                <p class="text-muted">
+                    {{ product.category }}
+                </p>
+                <h5 class="text-success">
+                    ₹{{ product.price }}
+                </h5>
+            </div>
+            <div class="card-footer bg-white">
+                <a href="{{ url_for('product_details',
+                product_id=product.id) }}"
+                   class="btn btn-primary w-100">
+                    View Product
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}
+My Orders - ShopSphere
+{% endblock %}
+{% block content %}
+<h2 class="mb-4">
+    <i class="fa-solid fa-box"></i>
+    My Orders
+</h2>
+{% if orders %}
+<div class="row">
+    {% for order in orders %}
+    <div class="col-lg-6 mb-4">
+        <div class="card shadow border-0">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <h5>
+                        Order #{{ order.order_number }}
+                    </h5>
+                    <span class="badge bg-success">
+                        {{ order.status }}
+                    </span>
+                </div>
+                <hr>
+                <p>
+                    <strong>Order Date:</strong>
+                    {{ order.created_at.strftime('%d-%m-%Y %H:%M') }}
+                </p>
+                <p>
+                    <strong>Total Amount:</strong>
+                    <span class="text-success">
+                        ₹{{ order.total_amount }}
+                    </span>
+                </p>
+                <p>
+                    <strong>Items Ordered:</strong>
+                </p>
+                <ul>
+                    {% for item in order.order_items %}
+                    <li>
+                        {{ item.product.name }}
+                        (Qty: {{ item.quantity }})
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="alert alert-info text-center">
+    <h4>
+        No Orders Found
+    </h4>
+    <p>
+        You have not placed any orders yet.
+    </p>
+    <a href="{{ url_for('products') }}"
+       class="btn btn-primary">
+        Start Shopping
+    </a>
+</div>
+{% endif %}
+{% endblock %}

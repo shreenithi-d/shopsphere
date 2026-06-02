@@ -1,0 +1,150 @@
+/* ==========================================
+   GENERAL
+========================================== */
+body {
+    background-color: #f4f6f9;
+    font-family: "Segoe UI", sans-serif;
+    min-height: 100vh;
+}
+a {
+    text-decoration: none;
+}
+/* ==========================================
+   NAVBAR
+========================================== */
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+/* ==========================================
+   HERO SECTION
+========================================== */
+.hero-section {
+    background: linear-gradient(
+        135deg,
+        #0d6efd,
+        #0b5ed7
+    );
+    color: white;
+    padding: 80px 20px;
+    border-radius: 15px;
+}
+/* ==========================================
+   CARDS
+========================================== */
+.card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.shadow-custom {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+/* ==========================================
+   PRODUCT CARDS
+========================================== */
+.product-card img {
+    object-fit: cover;
+}
+.product-card {
+    transition: all 0.3s ease;
+}
+.product-card:hover {
+    transform: scale(1.02);
+}
+.product-card .card-title {
+    min-height: 55px;
+}
+.product-card .card-text {
+    min-height: 60px;
+}
+/* ==========================================
+   BUTTONS
+========================================== */
+.btn {
+    border-radius: 10px;
+}
+.btn-primary,
+.btn-success,
+.btn-warning,
+.btn-danger {
+    font-weight: 600;
+}
+/* ==========================================
+   TABLES
+========================================== */
+.table {
+    vertical-align: middle;
+}
+/* ==========================================
+   FORMS
+========================================== */
+.form-control,
+.form-select {
+    border-radius: 10px;
+}
+.form-control:focus,
+.form-select:focus {
+    box-shadow: none;
+    border-color: #0d6efd;
+}
+/* ==========================================
+   DASHBOARD STATS
+========================================== */
+.stats-card {
+    text-align: center;
+    padding: 20px;
+}
+.stats-card h2 {
+    font-weight: bold;
+}
+/* ==========================================
+   PRODUCT DETAILS
+========================================== */
+.product-image {
+    width: 100%;
+    border-radius: 15px;
+}
+.price-tag {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #198754;
+}
+/* ==========================================
+   CART
+========================================== */
+.cart-image {
+    object-fit: cover;
+    border-radius: 10px;
+}
+/* ==========================================
+   REVIEW SECTION
+========================================= */
+.review-card {
+    border-left: 4px solid #ffc107;
+}
+/* ==========================================
+   FOOTER
+========================================== */
+footer {
+    margin-top: 80px;
+}
+/* ==========================================
+   RESPONSIVE
+========================================== */
+@media (max-width: 768px) {
+    .hero-section {
+        text-align: center;
+        padding: 50px 20px;
+    }
+    .product-card .card-title {
+        min-height: auto;
+    }
+    .product-card .card-text {
+        min-height: auto;
+    }
+}

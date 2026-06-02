@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}
+{{ product.name }} - ShopSphere
+{% endblock %}
+{% block content %}
+<div class="row">
+    <!-- PRODUCT IMAGE -->
+    <div class="col-lg-5 mb-4">
+        <div class="card shadow border-0">
+            <img src="{{ product.image_url }}"
+                 class="img-fluid rounded"
+                 alt="{{ product.name }}">
+        </div>
+    </div>
+    <!-- PRODUCT DETAILS -->
+    <div class="col-lg-7">
+        <h2 class="fw-bold">
+            {{ product.name }}
+        </h2>
+        <span class="badge bg-secondary mb-3">
+            {{ product.category }}
+        </span>
+        <h3 class="text-success">
+            ₹{{ product.price }}
+        </h3>
+        <p>
+            <strong>Available Stock:</strong>
+            {{ product.stock }}
+        </p>
+        <p>
+            <strong>Vendor:</strong>
+            {{ product.vendor.name }}
+        </p>
+        <hr>
+        <h5>
+            Product Description
+        </h5>
+        <p>
+            {{ product.description }}
+        </p>
+        <div class="mt-4">
+            <a href="{{ url_for('add_to_cart',
+            product_id=product.id) }}"
+               class="btn btn-success btn-lg">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Add To Cart
+            </a>
+            <a href="{{ url_for('products') }}"
+               class="btn btn-outline-secondary btn-lg">
+                Back To Products
+            </a>
+        </div>
+    </div>
+</div>
+<hr class="my-5">
+<!-- REVIEWS SECTION -->
+<h3 class="mb-4">
+    Customer Reviews
+</h3>
+{% if reviews %}
+    {% for review in reviews %}
+    <div class="card mb-3 shadow-sm">
+        <div class="card-body">
+            <h6>
+                {{ review.user.name }}
+            </h6>
+            <p class="text-warning">
+                Rating: ⭐ {{ review.rating }}/5
+            </p>
+            <p>
+                {{ review.comment }}
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+<div class="alert alert-info">
+    No reviews available for this product.
+</div>
+{% endif %}
+{% endblock %}
